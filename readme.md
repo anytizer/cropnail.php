@@ -35,5 +35,5 @@ Detailed usages are at: <a href="phpunit/tests/Test.php">PHP Unit Tests</a> as r
 | *100 x 200*                                   | *400 x 400*                                   |
 | ![Screenshot](/resized/IMG_9842-200x100.jpg)  | ![Screenshot](/resized/IMG_9842-200x400.jpg)  |
 | *200 x 100*                                   | *200 x 400*                                   |
-| ![Screenshot](/resized/IMG_9842-200x100.jpg)  | ![Screenshot](/resized/IMG_9842-200x400.jpg)  |
+| ![Screenshot](/resized/IMG_9842-100x400.jpg)  | ![Screenshot](/resized/IMG_9842-400x100.jpg)  |
 | *100 x 400*                                   | *400 x 100*                                   |
