@@ -30,8 +30,10 @@ Detailed usages are at: <a href="phpunit/tests/Test.php">PHP Unit Tests</a> as r
 | Images                                        | Images                                        |
 | --------------------------------------------- | --------------------------------------------- |
 | ![Screenshot](/resized/IMG_9842-100x100.jpg)  | ![Screenshot](/resized/IMG_9842-400x200.jpg)  |
-| *100x100*                                     | *400x200*                                     | 
+| *100 x 100*                                   | *400 x 200*                                   | 
 | ![Screenshot](/resized/IMG_9842-100x200.jpg)  | ![Screenshot](/resized/IMG_9842-400x400.jpg)  |
-| *100x200*                                     | *400x400*                                     |
+| *100 x 200*                                   | *400 x 400*                                   |
 | ![Screenshot](/resized/IMG_9842-200x100.jpg)  | ![Screenshot](/resized/IMG_9842-200x400.jpg)  |
-| *200x100*                                     | *200x400*                                     |
+| *200 x 100*                                   | *200 x 400*                                   |
+| ![Screenshot](/resized/IMG_9842-200x100.jpg)  | ![Screenshot](/resized/IMG_9842-200x400.jpg)  |
+| *100 x 400*                                   | *400 x 100*                                   |
