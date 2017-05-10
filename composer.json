@@ -1,0 +1,23 @@
+{
+	"name": "anytizer/cropnail.php",
+	"description": "Cropnail - Ratio mantained thumb nailer for any dimensions",
+	"type": "library",
+	"keywords": [
+		"crop",
+		"thumbnail",
+		"cropnail"
+	],
+	"authors": [
+		{
+			"role": "Developer"
+		}
+	],
+	"minimum-stability": "stable",
+	"prefer-stable": true,
+	"require": {
+		"php": ">=7.0"
+	},
+	"autoload": {
+		"files": ["src/libraries/classes/images/class.cropnail.inc.php"]
+	}
+}

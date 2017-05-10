@@ -20,9 +20,15 @@ Detailed usages are at: <a href="phpunit/tests/Test.php">PHP Unit Tests</a> as r
     $cropnail->resize($src_file, $target_file);
 
 
+## Installation
+
+    composer require anytizer/cropnail=dev-master
+
+
 ## Samples
 
-| Images                                        | Images                                        | |-----------------------------------------------|-----------------------------------------------|
+| Images                                        | Images                                        |
+| --------------------------------------------- | --------------------------------------------- |
 | ![Screenshot](/resized/IMG_9842-100x100.jpg)  | ![Screenshot](/resized/IMG_9842-400x200.jpg)  |
 | *100x100*                                     | *400x200*                                     | 
 | ![Screenshot](/resized/IMG_9842-100x200.jpg)  | ![Screenshot](/resized/IMG_9842-400x400.jpg)  |
