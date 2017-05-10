@@ -17,10 +17,12 @@ class ResizingTest extends TestCase
 		$sizes = array(
 			array(100, 100),
 			array(100, 200),
-			array(200, 100),
 			array(100, 400),
-			array(400, 100),
+			array(200, 100),
 			array(200, 400),
+			array(400, 100),
+			array(400, 200),
+			array(400, 400),
 		);
 		
 		foreach($srcs as $src_file)

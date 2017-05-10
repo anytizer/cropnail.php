@@ -27,13 +27,13 @@ Detailed usages are at: <a href="phpunit/tests/ResizingTest.php">PHP Unit Tests<
 
 ## Samples
 
-| Images                                        | Images                                        |
-| --------------------------------------------- | --------------------------------------------- |
-| ![Screenshot](/resized/IMG_9842-100x100.jpg)  | ![Screenshot](/resized/IMG_9842-400x200.jpg)  |
-| *100 x 100*                                   | *400 x 200*                                   | 
-| ![Screenshot](/resized/IMG_9842-100x200.jpg)  | ![Screenshot](/resized/IMG_9842-400x400.jpg)  |
-| *100 x 200*                                   | *400 x 400*                                   |
-| ![Screenshot](/resized/IMG_9842-200x100.jpg)  | ![Screenshot](/resized/IMG_9842-200x400.jpg)  |
-| *200 x 100*                                   | *200 x 400*                                   |
-| ![Screenshot](/resized/IMG_9842-100x400.jpg)  | ![Screenshot](/resized/IMG_9842-400x100.jpg)  |
-| *100 x 400*                                   | *400 x 100*                                   |
+| Images                                    | Images                                    |
+| ----------------------------------------- | ----------------------------------------- |
+| ![Screenshot](/resized/photo-100x100.jpg) | ![Screenshot](/resized/photo-200x400.jpg) |
+| *100 x 100*                               | *200 x 400*                               | 
+| ![Screenshot](/resized/photo-100x200.jpg) | ![Screenshot](/resized/photo-400x400.jpg) |
+| *100 x 200*                               | *400 x 100*                               |
+| ![Screenshot](/resized/photo-100x400.jpg) | ![Screenshot](/resized/photo-200x400.jpg) |
+| *100 x 400*                               | *400 x 300*                               |
+| ![Screenshot](/resized/photo-200x100.jpg) | ![Screenshot](/resized/photo-400x100.jpg) |
+| *200 x 100*                               | *400 x 400*                               |
