@@ -11,7 +11,7 @@ Image thumbnailer that maintains aspect ratio in target image.
 
 ## Usage
 
-Detailed usages are at: <a href="phpunit/tests/Test.php">PHP Unit Tests</a> as runner example.
+Detailed usages are at: <a href="phpunit/tests/ResizingTest.php">PHP Unit Tests</a> as runner example.
 
 	$x = 200;
 	$y = 150;
@@ -22,7 +22,7 @@ Detailed usages are at: <a href="phpunit/tests/Test.php">PHP Unit Tests</a> as r
 
 ## Installation
 
-    composer require anytizer/cropnail=dev-master
+    composer require anytizer/cropnail.php=dev-master
 
 
 ## Samples
