@@ -55,7 +55,7 @@ class cropnail
     private $source_y1 = 0;
     private $source_y2 = 0;
 
-    private $mime = 'image/png'; # gif, jpeg, png
+    private $mime = "image/png"; # gif, jpeg, png
 
     /**
      * List of processing activities
@@ -211,15 +211,15 @@ class cropnail
          */
         $source = null;
         $imagesize = getimagesize($original_filename);
-        $this->mime = $imagesize['mime'];
-        switch (strtolower($imagesize['mime'])) {
-            case 'image/gif':
+        $this->mime = $imagesize["mime"];
+        switch (strtolower($imagesize["mime"])) {
+            case "image/gif":
                 $source = imagecreatefromgif($original_filename);
                 break;
-            case 'image/jpeg':
+            case "image/jpeg":
                 $source = imagecreatefromjpeg($original_filename);
                 break;
-            case 'image/png':
+            case "image/png":
                 $source = imagecreatefrompng($original_filename);
                 $this->transparent = $this->is_transparent_png($original_filename);
                 break;
@@ -240,13 +240,13 @@ class cropnail
         imagecopyresampled($destination, $source, 0, 0, $this->source_x1, $this->source_y1, $this->resize_width, $this->resize_height, $clip_width, $clip_height);
         $success = false;
         switch ($this->mime) {
-            case 'image/gif':
+            case "image/gif":
                 $success = imagegif($destination, $cropnail_filename);
                 break;
-            case 'image/jpeg':
+            case "image/jpeg":
                 $success = imagejpeg($destination, $cropnail_filename, $this->quality);
                 break;
-            case 'image/png':
+            case "image/png":
                 # PNG_NO_FILTER or PNG_ALL_FILTERS
                 # @todo Quality = 0 - 9, Convert the % value
                 $quality = floor($this->quality / 10);
@@ -273,7 +273,7 @@ class cropnail
      * @see http://www.codingforums.com/php/257111-checking-png-files-transparency.html
      * @see http://perplexed.co.uk/1814_png_optimization_with_gd_library.htm
      */
-    private function is_transparent_png($image_file = '/tmp/image.png')
+    private function is_transparent_png($image_file = "/tmp/image.png")
     {
         return ord(file_get_contents($image_file, null, null, 25, 1)) == 6;
     }
