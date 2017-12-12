@@ -3,8 +3,11 @@ namespace cli;
 
 define("__ROOT__", dirname(__FILE__));
 require_once(__ROOT__."/../src/libraries/classes/images/class.cropnail.inc.php");
+require_once(__ROOT__."/class.handlers.inc.php");
+require_once(__ROOT__."/class.clis.inc.php"); // CLIs
 
 use images\cropnail;
+use cli\handlers;
 
 help();
 
@@ -13,96 +16,84 @@ switch(count($argv))
 	case 2:
 		# cropnail list
 		# cropnail list 300x500
-		process_2($argv);
+		cli_2($argv);
 		break;
 	case 4:
-		process_4($argv);
+		cli_4($argv);
 		break;
 	default:
 		stop("Unknown number of parameters.");
 }
 
-function process_2($argv)
+function get_files()
 {
-	#stop("Parameter 2");
-	switch($argv[1])
-	{
-		case "list":
-			process_list();
-			break;
-		default:
-			stop("Invalid selector: {$argv[1]}.");
-	}
-}
-
-function stop($message="")
-{
-	echo "\r\n";
-	echo $message;
-	die();
-}
-
-class handler
-{
-	/**
-	 * Creates resizing command
-	 */
-	public function resizing_command($file="abc.png")
-	{
-		$dimensions = "200x200";
-
-		$f = pathinfo($file);
-		$target = "target/{$f['filename']}-{$dimensions}.{$f['extension']}";
-		$command = "cropnail {$dimensions} {$file} {$target}";
-
-		return $command;
-	}
-}
-
-function process_list()
-{
-	$cwd = getcwd();
-	echo "
-List of images found in this directory:
-	- {$cwd}
-	- Make sure that that target DIR exists.
-";
-
-	// {$cwd}/
 	$srcs = array(
 		"jpg" => glob("*.[jJ][pP][gG]"),
 		"jpeg" => glob("*.[jJ][pP][eE][gG]"),
 		"png" => glob("*.[pP][nN][gG]"),
 	);
+	
 	$srcs = array_merge($srcs["jpg"], $srcs["jpeg"], $srcs["png"]);
-	$srcs = array_map(array(new handler(), "resizing_command"), $srcs);
-	#print_r($srcs);
+	return $srcs;
+}
+
+function get_list()
+{
+	$srcs = get_files();
+	$srcs = array_map(array(new handlers(), "resizing_command"), $srcs);
+
+	return $srcs;
+}
+
+function process_list()
+{
+	$cwd = getcwd();
+
+	echo "
+List of images found in this directory:
+	- {$cwd}
+	- Make sure that that target DIR exists.
+";
+	$srcs = get_list();
 	
 	echo "\r\n";
 	echo implode("\r\n", $srcs);
 	echo "\r\n";
 }
 
-function process_4($argv)
+function process_report()
 {
-	#stop("Parameter 4");
+	$files = get_files();
+	$sizes = array_map(array(new handlers(), "get_size"), $files);
+	
+	//print_r($files);
+	//print_r($sizes);
 
-	$dimensions = explode("x", $argv[1]);
-	if(count($dimensions)!=2)
+	/**
+	 * Counts how many images exist in each dimensions
+	 */
+	$dimensions = array();
+	foreach($sizes as $dimension)
 	{
-		stop("Error: Dimensions should be WIDTHxHEIGHT eg. 200x300.");
+		$dimensions[$dimension] = ($dimensions[$dimension]??0)+1;
 	}
 
-	$x = (int)$dimensions[0];
-	$y = (int)$dimensions[1];
-	if(!is_int($x) || !is_int($y))
+	echo "
+Count of images based on dimensions.
+";
+
+	foreach($dimensions as $WxH => $total)
 	{
-		stop("Error: Dimensions should be integers. {$x}, {$y}");
+		list($width, $height) = explode("x", $WxH);
+		echo sprintf("\n%7s x %7s : %7s", $width, $height, $total);
 	}
+}
 
-	$source = $argv[2];
-	$target = $argv[3];
-
+/**
+ * Actual image resize in specified dimension
+ */
+function resize($source="", $target="", $x=0, $y=0)
+{
 	/**
 	 * Performs the actual cropnail work.
 	 */
@@ -115,8 +106,7 @@ function process_4($argv)
  */
 function help()
 {
-	echo("
-Cropnail is a library to resize your images.
+	echo("Cropnail is a library to resize your images.
 Usage:
 	cropnail 200x200 source.png target.png
 	cropnail 200x200 source.jpeg target.png
@@ -129,4 +119,14 @@ Usage:
 	cropnail resize 300x500
 	cropnail border 2px #FFFFFF
 ");
+}
+
+/**
+ * Stop executing
+ */
+function stop($message="")
+{
+	echo "\r\n";
+	echo $message;
+	die();
 }
