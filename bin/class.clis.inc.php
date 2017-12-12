@@ -14,9 +14,22 @@ function cli_2($argv)
 			break;
 		default:
 			stop("Invalid selector: {$argv[1]}.");
+			break;
 	}
 }
 
+function cli_3($argv)
+{
+	switch($argv[1])
+	{
+		case "size":
+			process_size($argv[2]);
+			break;
+		default:
+			stop("Unknown size");
+			break;
+	}
+}
 
 function cli_4($argv)
 {

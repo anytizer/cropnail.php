@@ -5,6 +5,7 @@ define("__ROOT__", dirname(__FILE__));
 require_once(__ROOT__."/../src/libraries/classes/images/class.cropnail.inc.php");
 require_once(__ROOT__."/class.handlers.inc.php");
 require_once(__ROOT__."/class.clis.inc.php"); // CLIs
+require_once(__ROOT__."/class.processors.inc.php");
 
 use images\cropnail;
 use cli\handlers;
@@ -17,6 +18,12 @@ switch(count($argv))
 		# cropnail list
 		# cropnail list 300x500
 		cli_2($argv);
+		break;
+	case 3:
+		// cropnail size wide
+		// cropnail size tall
+		// cropnail size square
+		cli_3($argv);
 		break;
 	case 4:
 		cli_4($argv);
@@ -43,50 +50,6 @@ function get_list()
 	$srcs = array_map(array(new handlers(), "resizing_command"), $srcs);
 
 	return $srcs;
-}
-
-function process_list()
-{
-	$cwd = getcwd();
-
-	echo "
-List of images found in this directory:
-	- {$cwd}
-	- Make sure that that target DIR exists.
-";
-	$srcs = get_list();
-	
-	echo "\r\n";
-	echo implode("\r\n", $srcs);
-	echo "\r\n";
-}
-
-function process_report()
-{
-	$files = get_files();
-	$sizes = array_map(array(new handlers(), "get_size"), $files);
-	
-	//print_r($files);
-	//print_r($sizes);
-
-	/**
-	 * Counts how many images exist in each dimensions
-	 */
-	$dimensions = array();
-	foreach($sizes as $dimension)
-	{
-		$dimensions[$dimension] = ($dimensions[$dimension]??0)+1;
-	}
-
-	echo "
-Count of images based on dimensions.
-";
-
-	foreach($dimensions as $WxH => $total)
-	{
-		list($width, $height) = explode("x", $WxH);
-		echo sprintf("\n%7s x %7s : %7s", $width, $height, $total);
-	}
 }
 
 /**
@@ -118,6 +81,10 @@ Usage:
 	cropnail list 300x500
 	cropnail resize 300x500
 	cropnail border 2px #FFFFFF
+	cropnail size
+		- cropnail size tall
+		- cropnail size wide
+		- cropnail size square
 ");
 }
 
