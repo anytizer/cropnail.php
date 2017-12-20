@@ -9,8 +9,9 @@ class handlers
 	public function resizing_command($file="abc.png")
 	{
 		//$dimensions = "200x200"; // square
-		$dimensions = "200x400"; // tall
+		//$dimensions = "200x400"; // tall
 		//$dimensions = "400x200"; // wide
+		$dimensions = "170x220"; // custom
 
 		$f = pathinfo($file);
 		$target = "{$dimensions}/{$f['filename']}-{$dimensions}.{$f['extension']}";
