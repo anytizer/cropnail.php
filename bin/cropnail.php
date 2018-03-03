@@ -71,20 +71,20 @@ function help()
 {
 	echo("Cropnail is a library to resize your images.
 Usage:
-	cropnail 200x200 source.png target.png
-	cropnail 200x200 source.jpeg target.png
-	cropnail 200x200 DIR
-	cropnail list
-	cropnail report
-	cropnail group
+	images 200x200 source.png target.png
+	images 200x200 source.jpeg target.png
+	images 200x200 DIR
+	images list
+	images report
+	images group
 		- Puts photos in their dimensions
-	cropnail list 300x500
-	cropnail resize 300x500
-	cropnail border 2px #FFFFFF
-	cropnail size
-		- cropnail size tall
-		- cropnail size wide
-		- cropnail size square
+	images list 300x500
+	images resize 300x500
+	images border 2px #FFFFFF
+	images size
+		- images size tall
+		- images size wide
+		- images size square
 ");
 }
 

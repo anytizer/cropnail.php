@@ -6,8 +6,8 @@ namespace images;
  * Rather it will crop the best largest size possible within the image to maintain the ratio.
  * So, it is practically possible to create thumbnails of any size from the original image of any size.
  *
- * @example $cropnail = new cropnail(100, 200);
- * @example $cropnail->resize($original_image_filename, $cropnail_image_filename);
+ * @example $images = new images(100, 200);
+ * @example $images->resize($original_image_filename, $cropnail_image_filename);
  * @see http://www.sitepoint.com/forums/showthread.php?868379-Dealing-With-Different-User-Image-Sizes&highlight=multipe+image+sizes
  */
 class cropnail
@@ -40,7 +40,7 @@ class cropnail
 	 */
 	private $quality = 75;
 	/**
-	 * A dynamically/programatically chosen cropnail position from one of the above constants.
+	 * A dynamically/programatically chosen images position from one of the above constants.
 	 * Or, optional use the hard coded x/y positions without mathematical calculations.
 	 */
 	private $position_id = 0;
@@ -48,7 +48,7 @@ class cropnail
 	private $cropnail_y = 0;
 
 	/**
-	 * Record cropnail points for post-operation usage
+	 * Record images points for post-operation usage
 	 */
 	private $source_x1 = 0;
 	private $source_x2 = 0;
@@ -71,7 +71,7 @@ class cropnail
 	/**
 	 * Set the target dimension at the time of initialization
 	 *
-	 * cropnail constructor.
+	 * images constructor.
 	 * @param int $width
 	 * @param int $height
 	 * @param int $quality
@@ -112,7 +112,7 @@ class cropnail
 	}
 
 	/**
-	 * Produce the cropnail-ed image file
+	 * Produce the images-ed image file
 	 *
 	 * @param string $original_filename
 	 * @param string $cropnail_filename
@@ -214,7 +214,7 @@ class cropnail
 
 		/**
 		 * Canvas for target image
-		 * Produce the croped thumbnail (actual cropnail)
+		 * Produce the croped thumbnail (actual images)
 		 */
 		$destination = imagecreatetruecolor($this->resize_width, $this->resize_height);
 
@@ -254,7 +254,7 @@ class cropnail
 		}
 
 		/**
-		 * Actually produce the cropnail image and save it to the file (in .jpg format)
+		 * Actually produce the images image and save it to the file (in .jpg format)
 		 */
 		imagecopyresampled($destination, $source, 0, 0, $this->source_x1, $this->source_y1, $this->resize_width, $this->resize_height, $clip_width, $clip_height);
 		$success = false;

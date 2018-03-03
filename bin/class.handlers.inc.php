@@ -15,7 +15,7 @@ class handlers
 
 		$f = pathinfo($file);
 		$target = "{$dimensions}/{$f['filename']}-{$dimensions}.{$f['extension']}";
-		$command = "cropnail {$dimensions} \"{$file}\" \"{$target}\"";
+		$command = "images {$dimensions} \"{$file}\" \"{$target}\"";
 
 		return $command;
 	}

@@ -1,6 +1,6 @@
 {
 	"name": "anytizer/cropnail.php",
-	"description": "Cropnail - Ratio mantained thumb nailer for any dimensions",
+	"description": "Cropnail - Ratio maintained thumbnail for any dimensions",
 	"type": "library",
 	"keywords": [
 		"crop",
@@ -18,6 +18,8 @@
 		"php": ">=7.0"
 	},
 	"autoload": {
-		"files": ["src/libraries/classes/images/class.cropnail.inc.php"]
+		"psr-4": {
+			"anytizer\\": "src/anytizer"
+		}
 	}
 }

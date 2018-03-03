@@ -1,3 +1,4 @@
 Add command line support
 
 cropnail 200x400 original.png target.png
+CLI "sell photo.png" pushes the photo to the gallery website.
