@@ -1,5 +1,5 @@
 <?php
-namespace images;
+namespace anytizer\images;
 
 /**
  * Crops an image into any size - keeping the aspect ratio.
@@ -104,8 +104,8 @@ class cropnail
 	/**
 	 * Set Image quality
 	 *
-	 * @param int $quality
-	 */
+     * @param int $quality
+     */
 	public function qualityTo($quality = 0)
 	{
 		$this->quality = abs((int)$quality);
@@ -114,14 +114,11 @@ class cropnail
 	/**
 	 * Produce the images-ed image file
 	 *
-	 * @param string $original_filename
-	 * @param string $cropnail_filename
-	 * @param int $crop_pattern
-	 * @return bool
-	 *    - true:  Image has been resized correctly
-	 *    - false: Image has NOT been resized because of several reasons
-	 */
-	public function resize($original_filename = "", $cropnail_filename = "", $crop_pattern = 0)
+     * @param string $original_filename
+     * @param string $cropnail_filename
+     * @return bool
+     */
+	public function resize($original_filename = "", $cropnail_filename = "")
 	{
 		/**
 		 * Resizer needs the target dimensions
@@ -151,12 +148,6 @@ class cropnail
 		$canvas_height = $canvas_sizes[1];
 
 		/**
-		 * Maximum size of the clip proportional to the thumbnail
-		 */
-		$clip_width = 0;
-		$clip_height = 0;
-
-		/**
 		 * From where should we crop the clip
 		 */
 		$this->source_x1 = 0;
@@ -165,7 +156,7 @@ class cropnail
 		$this->source_y2 = 0;
 
 		if ($canvas_width / $this->resize_width < $canvas_height / $this->resize_height) {
-			# Coverting full width, and height needs to be re-calculated
+			# Converting full width, and height needs to be re-calculated
 			$clip_width = $canvas_width;
 			$clip_height = $this->resize_height * $canvas_width / $this->resize_width;
 			$this->debug[] = "Section A: Converting full width, and height needs to be re-calculated";

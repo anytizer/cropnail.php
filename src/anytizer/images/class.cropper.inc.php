@@ -1,8 +1,6 @@
 <?php
 namespace images;
 
-use \common\variable;
-
 /**
  * Image cropping interface
  */
@@ -23,7 +21,7 @@ class cropper
     private $destination = "";
 
     private $errors = array(
-        "destination_exists" => "Desitntion exists already.",
+        "destination_exists" => "Destination exists already.",
         "destination_writeerror" => "Cannot write to the destination: ",
         "source_file_not_found" => "Source file not found",
         "interface_missing" => "Interface does not exist: ",
@@ -45,8 +43,6 @@ class cropper
     {
         $width = (int)$width;
         $height = (int)$height;
-
-        $variable = new \common\variable();
 
         if ($width > 0 && $height > 0) {
             $this->width = (int)$width;

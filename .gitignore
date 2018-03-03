@@ -2,4 +2,4 @@
 /bin/source
 /bin/target
 /.idea
-/test/vendor
+/tests/vendor
