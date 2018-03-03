@@ -12,14 +12,12 @@
 			"role": "Developer"
 		}
 	],
-	"minimum-stability": "stable",
-	"prefer-stable": true,
 	"require": {
 		"php": ">=7.0"
 	},
 	"autoload": {
 		"psr-4": {
-			"anytizer\\": "src/anytizer"
+			"anytizer\\images": "src/anytizer/images"
 		}
 	}
 }
