@@ -1,6 +1,7 @@
 <?php
 namespace tests;
-use images\cropnail;
+
+use anytizer\images\cropnail;
 use PHPUnit\Framework\TestCase;
 
 class ResizingTest extends TestCase
