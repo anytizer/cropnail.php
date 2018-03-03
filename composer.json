@@ -19,7 +19,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"anytizer\\": "src/anytizer"
+			"anytizer\\images": "src/anytizer/images"
 		}
 	}
 }
