@@ -1,5 +1,5 @@
 <?php
-namespace anytizer\images;
+namespace images;
 
 /**
  * Crops an image into any size - keeping the aspect ratio.

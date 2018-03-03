@@ -1,4 +1,4 @@
-    # Cropnail
+# cropnail.php
 
 Image thumbnailer that maintains aspect ratio in target image.
 
