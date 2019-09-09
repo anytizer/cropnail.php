@@ -1,5 +1,5 @@
 {
-    "require": {
-        "anytizer/cropnail.php": "dev-master"
-    }
+  "require": {
+    "anytizer/cropnail.php": "dev-master"
+  }
 }

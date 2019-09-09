@@ -1,61 +1,62 @@
 <?php
+
 namespace cli;
 
 class handlers
 {
-	/**
-	 * Creates resizing command
-	 */
-	public function resizing_command($file="abc.png")
-	{
-		//$dimensions = "200x200"; // square
-		//$dimensions = "200x400"; // tall
-		//$dimensions = "400x200"; // wide
-		$dimensions = "170x220"; // custom
+    /**
+     * Creates resizing command
+     */
+    public function resizing_command($file = "abc.png")
+    {
+        //$dimensions = "200x200"; // square
+        //$dimensions = "200x400"; // tall
+        //$dimensions = "400x200"; // wide
+        $dimensions = "170x220"; // custom
 
-		$f = pathinfo($file);
-		$target = "{$dimensions}/{$f['filename']}-{$dimensions}.{$f['extension']}";
-		$command = "images {$dimensions} \"{$file}\" \"{$target}\"";
+        $f = pathinfo($file);
+        $target = "{$dimensions}/{$f['filename']}-{$dimensions}.{$f['extension']}";
+        $command = "images {$dimensions} \"{$file}\" \"{$target}\"";
 
-		return $command;
-	}
+        return $command;
+    }
 
-	public function get_size($file="abc.png")
-	{
-		$info = getimagesize($file);
-		
-		$width = $info[0]??0;
-		$height = $info[1]??0;
-		
-		//return $info;
-		return "{$width}x{$height}";
-	}
+    public function get_size($file = "abc.png")
+    {
+        $info = getimagesize($file);
 
-	/**
-	 * Extracts all meta of an image
-	 */
-	public function meta($file="abc.png")
-	{
-		$info = getimagesize($file);
+        $width = $info[0] ?? 0;
+        $height = $info[1] ?? 0;
 
-		$width = $info[0]??0;
-		$height = $info[1]??0;
+        //return $info;
+        return "{$width}x{$height}";
+    }
 
-		$orientation = ($height > $width)?"tall":(($width > $height)?"wide":"square");
+    /**
+     * Extracts all meta of an image
+     */
+    public function meta($file = "abc.png")
+    {
+        $info = getimagesize($file);
 
-		$meta = array(
-			"file" => $file,
-			"width" => $width,
-			"height" => $height,
-			"orientation" => $orientation
-		);
+        $width = $info[0] ?? 0;
+        $height = $info[1] ?? 0;
 
-		return $meta;
-	}
+        $orientation = ($height > $width) ? "tall" : (($width > $height) ? "wide" : "square");
 
-	public function move_by_orientations($meta=array())
-	{
-		$command = "move \"{$meta['file']}\" {$meta['orientation']}";
-		return $command;
-	}
+        $meta = array(
+            "file" => $file,
+            "width" => $width,
+            "height" => $height,
+            "orientation" => $orientation
+        );
+
+        return $meta;
+    }
+
+    public function move_by_orientations($meta = array())
+    {
+        $command = "move \"{$meta['file']}\" {$meta['orientation']}";
+        return $command;
+    }
 }

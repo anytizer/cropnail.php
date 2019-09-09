@@ -1,4 +1,5 @@
 <?php
+
 namespace images;
 
 /**
@@ -10,12 +11,12 @@ class cropper_quick
      * Session/Post have the information on what file to crop and in which dimensions.
      * Crop and save the file accordingly.
      *
-	 * @param string $source_image
-	 * @param int $width
-	 * @param int $height
-	 * @param string $destination
-	 * @return bool
-	 */
+     * @param string $source_image
+     * @param int $width
+     * @param int $height
+     * @param string $destination
+     * @return bool
+     */
     public function crop($source_image = "", $width = 0, $height = 0, $destination = "")
     {
         # Whatever was the crop size selected, what is the size to load?
@@ -50,14 +51,14 @@ class cropper_quick
         return imagedestroy($thumb);
     }
 
-	/**
-	 * Find out x:y ratio
-	 *
-	 * @param string $source_image
-	 * @param float $ratio
-	 * @param string $destination
-	 * @return bool
-	 */
+    /**
+     * Find out x:y ratio
+     *
+     * @param string $source_image
+     * @param float $ratio
+     * @param string $destination
+     * @return bool
+     */
     public function crop_ratio($source_image = "", $ratio = 0.3, $destination = "")
     {
         $info = array();
@@ -93,12 +94,12 @@ class cropper_quick
     }
 
 
-	/**
-	 * @param string $source_image
-	 * @param int $percent
-	 * @param string $destination
-	 * @return bool
-	 */
+    /**
+     * @param string $source_image
+     * @param int $percent
+     * @param string $destination
+     * @return bool
+     */
     public function crop_percent($source_image = "", $percent = 30, $destination = "")
     {
         $info = array();
