@@ -4,3 +4,4 @@
 /.idea
 /tests/vendor
 /tests/composer.lock
+/resized/*.jpg
