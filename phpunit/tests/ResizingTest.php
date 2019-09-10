@@ -7,12 +7,19 @@ use PHPUnit\Framework\TestCase;
 
 class ResizingTest extends TestCase
 {
-    public function setup()
+    public function setup(): void
+    {
+    }
+
+    public function tearDown(): void
     {
     }
 
     public function testResizeImages()
     {
+        /**
+         * @todo Undefined __ROOT__
+         */
         $srcs = glob(__ROOT__ . "/../images/*.[jJ][pP][gG]");
         $target_dir = __ROOT__ . "/../resized";
 
@@ -37,10 +44,10 @@ class ResizingTest extends TestCase
                 $target_file = "{$target_dir}/{$info['filename']}-{$x}x{$y}.jpg";
 
                 $cropnail = new cropnail($x, $y);
-                $cropnail->resize($src_file, $target_file);
+                $success = $cropnail->resize($src_file, $target_file);
+
+                $this->assertTrue($success, "Failed size: ".print_r($size, true));
             }
         }
-
-        $this->assertTrue(true);
     }
 }
