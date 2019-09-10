@@ -3,3 +3,4 @@
 /bin/target
 /.idea
 /tests/vendor
+/phpunit/.phpunit.result.cache
