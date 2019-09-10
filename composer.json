@@ -1,23 +1,24 @@
 {
-	"name": "anytizer/cropnail.php",
-	"description": "Cropnail - Ratio maintained thumbnail for any dimensions",
-	"type": "library",
-	"keywords": [
-		"crop",
-		"thumbnail",
-		"cropnail"
-	],
-	"authors": [
-		{
-			"role": "Developer"
-		}
-	],
-	"require": {
-		"php": ">=7.0"
-	},
-	"autoload": {
-		"psr-4": {
-			"anytizer\\images\\": "src/anytizer/images"
-		}
-	}
+  "name": "anytizer/cropnail.php",
+  "description": "Cropnail - Ratio maintained thumbnail for any dimensions",
+  "type": "library",
+  "keywords": [
+    "crop",
+    "thumbnail",
+    "cropnail"
+  ],
+  "authors": [
+    {
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "ext-gd": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "anytizer\\images\\": "src/anytizer/images"
+    }
+  }
 }

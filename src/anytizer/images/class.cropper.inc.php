@@ -1,4 +1,5 @@
 <?php
+
 namespace images;
 
 /**
@@ -75,12 +76,12 @@ class cropper
         }
     }
 
-	/**
-	 * Asking how to crop
-	 *
-	 * @param string $source
-	 * @param string $destination
-	 */
+    /**
+     * Asking how to crop
+     *
+     * @param string $source
+     * @param string $destination
+     */
     public function crop_interface($source = "", $destination = "")
     {
         if (is_file($destination)) {
@@ -129,9 +130,9 @@ class cropper
      * Session/Post have the information on what file to crop and in which dimensions.
      * Crop and save the file accordingly.
      *
-	 * @param bool $show_image
-	 * @return bool
-	 */
+     * @param bool $show_image
+     * @return bool
+     */
     public function crop_preset($show_image = false)
     {
         $crop = $_POST["crop"];

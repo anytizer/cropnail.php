@@ -3,5 +3,6 @@
 /bin/target
 /.idea
 /tests/vendor
+/phpunit/.phpunit.result.cache
 /tests/composer.lock
 /resized/*.jpg
